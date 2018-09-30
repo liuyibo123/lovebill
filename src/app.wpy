@@ -1,0 +1,96 @@
+<style lang="less" xmlns:wepy="http://www.w3.org/1999/xhtml" xmlns:wx="http://www.w3.org/1999/xhtml">
+@import './style/weui.less';
+page{
+    height: 100%;
+    background-color: #f9fbff;
+}
+@font-face {
+    font-family: 'iconfont';  /* project id 573053 */
+    src: url('//at.alicdn.com/t/font_573053_6w688di648xxyldi.eot');
+    src: url('//at.alicdn.com/t/font_573053_6w688di648xxyldi.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_573053_6w688di648xxyldi.woff') format('woff'),
+    url('//at.alicdn.com/t/font_573053_6w688di648xxyldi.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_573053_6w688di648xxyldi.svg#iconfont') format('svg');
+}
+</style>
+<template>
+</template>
+<script>
+
+import wepy from 'wepy';
+import 'wepy-async-function';
+export default class extends wepy.app {
+    config = {
+        'pages': [
+            'components/me',
+            'components/index',
+        ],
+        window: {
+            backgroundTextStyle: 'light',
+            navigationBarBackgroundColor: '#138cff',
+            navigationBarTitleText: 'WeChat',
+            navigationBarTextStyle: 'white',
+            backgroundColor: '#138cff'
+        },
+        tabBar: {
+            color: '#757982',
+            selectedColor: '#138cff',
+            borderStyle: 'white',
+            backgroundColor: '#fff',
+            list: [
+                {
+                    pagePath: 'components/index',
+                    text: '按日期',
+                    iconPath: 'images/tabbar/plan.png',
+                    selectedIconPath: 'images/tabbar/plan-on.png'
+                },
+                {
+                    pagePath: 'components/index',
+                    text: '按类型',
+                    iconPath: 'images/tabbar/bill.png',
+                    selectedIconPath: 'images/tabbar/bill-on.png'
+                },
+                {
+                    pagePath: 'components/index',
+                    text: '类别',
+                    iconPath: 'images/tabbar/index.png',
+                    selectedIconPath: 'images/tabbar/index-on.png'
+                },
+                {
+                    pagePath: 'components/index',
+                    text: '统计',
+                    iconPath: 'images/tabbar/ranking.png',
+                    selectedIconPath: 'images/tabbar/ranking-on.png'
+                },
+                {
+                    pagePath: 'components/me',
+                    text: '我的',
+                    iconPath: 'images/tabbar/me.png',
+                    selectedIconPath: 'images/tabbar/me-on.png'
+                }
+            ]
+        }
+    };
+    data ={
+
+    };
+    constructor () {
+        super();
+        this.use('requestfix');
+        this.use('promisify');
+    }
+    globalData = {
+        appId: 'wxafa80476382c6e9a',
+        secret: '5410e6e494afab8ef59a1adea4e9f7e0',
+        userInfo: null,
+        openId: null,
+        code: null,
+        billId:null,
+    };
+    onLaunch() {
+    };
+    methods={
+    }
+
+}
+</script>

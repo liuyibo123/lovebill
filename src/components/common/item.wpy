@@ -1,0 +1,60 @@
+<style>
+    .item{
+        position:relative;
+        background: #EBEBEB;
+        width: 100%;
+        padding: 2px;
+        height: 50px;
+        border-bottom: rgba(228, 239, 211, 0.96) solid 1px;
+    }
+    .itemName{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        font-family: -apple-system,monospace;
+        font-size: 14px;
+        color: #3f2b76;
+        font-weight: bolder;
+    }
+    .left{
+        background: #8afc3c;
+        height: 100%;
+        float: left;
+    }
+    .right{
+        float: right;
+        background: #ffcb8f;
+        height: 100%;
+    }
+</style>
+<template>
+    <view class="item" @tap="reduce">
+        <view class="left" style="width:{{width}}%;"></view>
+        <view class="right" style="width: {{100-width}}%"></view>
+        <view class="itemName">{{itemName}}</view>
+    </view>
+</template>
+
+<script>
+    import wepy from 'wepy';
+
+    export default class Msg extends wepy.page {
+        props={
+            width: 0,
+            itemName: '吃饭'
+        };
+        events={
+            reduce() {
+                console.log(1);
+                wx.getUserInfo({
+                    success: function (resp) {
+                        console.log(resp);
+                    }
+                });
+            }
+        };
+        methods = {
+        };
+    }
+</script>
